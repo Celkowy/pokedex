@@ -133,6 +133,7 @@ img {
 }
 
 .flip-box-back {
+  padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

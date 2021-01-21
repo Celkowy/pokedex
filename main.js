@@ -4,7 +4,9 @@ import createPokemonDiv from './createPokemon.js'
 const URL = 'https://pokeapi.co/api/v2/'
 let offset = 0
 const form = document.getElementById('#form')
-const input = document.getElementById('#input')
+const search = document.querySelector('.search')
+const submit = document.querySelector('.submit')
+
 const wrapper = document.querySelector('.wrapper')
 
 async function loadPokemons(url, offset) {
@@ -19,18 +21,19 @@ function appendPokemonsToDOM(pokemons) {
     createPokemonDiv(pokemon)
   })
 }
-console.log(offset)
+
 loadPokemons(URL, offset)
 
-window.addEventListener('scroll', async e => {
-  if (window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight) {
+window.addEventListener('scroll', e => {
+  if (window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight - 50) {
     loadPokemons(URL, (offset += 60))
   }
 })
 
-form.addEventListener('submit', () => {
-  console.log(form.value)
-  let searchText
+search.addEventListener('input', () => {
+  e.preventDefault()
+
+  let searchText = form.value
   wrapper.innerHTML = ''
   loadPokemons(URL + searchText)
 })
