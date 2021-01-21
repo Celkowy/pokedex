@@ -63,6 +63,13 @@ input[type='submit']:focus {
 
 .title {
   font-size: 42px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.title:hover {
+  color: black;
 }
 
 img {
@@ -92,7 +99,6 @@ img {
 .pokemon-flip-box {
   perspective: 1000px;
   margin: 15px;
-
   /* opacity: 0; */
 }
 

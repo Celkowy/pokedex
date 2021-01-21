@@ -2,11 +2,7 @@ import returnHTML from './returnHTML.js'
 
 const wrapper = document.querySelector('.wrapper')
 
-export default function createPokemonDiv(pokemon) {
-  fetchData(pokemon)
-}
-
-async function fetchData(pokemon) {
+export default async function createPokemon(pokemon) {
   const res = await fetch(pokemon.url)
   const data = await res.json()
   insertData(data)
@@ -15,8 +11,7 @@ async function fetchData(pokemon) {
 function insertData(data) {
   const pokemonDiv = document.createElement('div')
   pokemonDiv.setAttribute('class', 'pokemon-flip-box')
-  const { types } = data
-  pokemonDiv.innerHTML = returnHTML(data, types)
+  pokemonDiv.innerHTML = returnHTML(data)
   wrapper.appendChild(pokemonDiv)
 
   // setTimeout(() => {

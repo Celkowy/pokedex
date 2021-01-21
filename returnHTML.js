@@ -1,4 +1,6 @@
-export default function returnHTML(data, types) {
+export default function returnHTML(data) {
+  const { types } = data
+
   return `
 <div class="pokemon">
   <div class="flip-box-inner">

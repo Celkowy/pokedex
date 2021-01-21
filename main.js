@@ -1,5 +1,5 @@
 import './createPokemon.js'
-import createPokemonDiv from './createPokemon.js'
+import createPokemon from './createPokemon.js'
 import returnHTML from './returnHTML.js'
 
 const URL = 'https://pokeapi.co/api/v2/'
@@ -7,6 +7,7 @@ let offset = 0
 
 const wrapper = document.querySelector('.wrapper')
 const form = document.getElementById('form')
+const title = document.querySelector('.title')
 
 async function loadPokemons(url, offset) {
   const res = await fetch(url + `pokemon?limit=${60}&offset=${offset}`)
@@ -19,7 +20,7 @@ loadPokemons(URL, offset)
 function appendPokemonsToDOM(pokemons) {
   const { results } = pokemons
   results.forEach(pokemon => {
-    createPokemonDiv(pokemon)
+    createPokemon(pokemon)
   })
 }
 
@@ -37,11 +38,16 @@ form.addEventListener('submit', e => {
     .then(data => displaySearchPokemon(data))
 })
 
-async function displaySearchPokemon(data) {
-  const { types } = data
+function displaySearchPokemon(data) {
   wrapper.innerHTML = ''
   const pokemonDiv = document.createElement('div')
   pokemonDiv.setAttribute('class', 'pokemon-flip-box')
-  pokemonDiv.innerHTML = returnHTML(data, types)
+  pokemonDiv.innerHTML = returnHTML(data)
   wrapper.appendChild(pokemonDiv)
 }
+
+title.addEventListener('click', () => {
+  search.value = ''
+  wrapper.innerHTML = ''
+  loadPokemons(URL, offset)
+})
