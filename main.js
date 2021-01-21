@@ -49,5 +49,6 @@ function displaySearchPokemon(data) {
 title.addEventListener('click', () => {
   search.value = ''
   wrapper.innerHTML = ''
+  offset = 0
   loadPokemons(URL, offset)
 })
