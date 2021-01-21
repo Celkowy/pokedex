@@ -83,7 +83,6 @@ img {
   height: 250px;
   width: 150px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.4);
-  margin: 15px;
   transition: transform 0.8s;
   background-color: transparent;
   border-radius: 10px;
@@ -92,6 +91,8 @@ img {
 
 .pokemon-flip-box {
   perspective: 1000px;
+  margin: 15px;
+
   /* opacity: 0; */
 }
 
@@ -174,11 +175,11 @@ span.id {
   }
 
   .input {
-    padding: 5px 10px;
+    padding: 8px 16px;
     width: 200px;
   }
 
   .submit {
-    padding: 5px 10px;
+    padding: 8px 16px;
   }
 }

@@ -29,6 +29,7 @@ window.addEventListener('scroll', async e => {
 })
 
 form.addEventListener('submit', () => {
+  console.log(form.value)
   let searchText
   wrapper.innerHTML = ''
   loadPokemons(URL + searchText)
