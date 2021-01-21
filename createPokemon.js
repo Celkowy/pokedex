@@ -1,5 +1,4 @@
 const wrapper = document.querySelector('.wrapper')
-let counter = 1
 
 export default function createPokemonDiv(pokemon) {
   fetchData(pokemon)
@@ -29,41 +28,36 @@ function insertData(data) {
     </div>
 
     <div class="flip-box-back">
-
-<div class="pokemon-name">
-<h3 class="name">${data.name}</h3>
-
+      <div class="pokemon-name">
+        <h3 class="name">${data.name}</h3>
       </div>
 
       <div class="abilities">
-      <h4>Abilities:</h4>
-      <small>${data.abilities.map(abilities => abilities.ability.name).join(', ')}</small>
+        <h4>Abilities:</h4>
+        <small>${data.abilities.map(abilities => abilities.ability.name).join(', ')}</small>
       </div>
 
       <div class="base-experience">
-      <h4>Base experience:</h4>
-      <small>${data.base_experience}</small>
+        <h4>Base experience:</h4>
+        <small>${data.base_experience}</small>
       </div>
 
       <div class="height">
-      <h4>Height:</h4>
-      <small>${data.height}</small>
+        <h4>Height:</h4>
+        <small>${data.height}</small>
       </div>
-
 
       <div class="weight">
-      <h4>Weight:</h4>
-      <small>${data.weight}</small>
+        <h4>Weight:</h4>
+        <small>${data.weight}</small>
       </div>
-
-      
     </div>
   </div>
 </div>
   `
   wrapper.appendChild(pokemonDiv)
 
-  setTimeout(() => {
-    pokemonDiv.classList.add('animation')
-  }, data.id * 75)
+  // setTimeout(() => {
+  //   pokemonDiv.classList.add('animation')
+  // }, data.id * 75)
 }

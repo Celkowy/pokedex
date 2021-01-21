@@ -1,8 +1,11 @@
-import './createPokemonDiv.js'
-import createPokemonDiv from './createPokemonDiv.js'
+import './createPokemon.js'
+import createPokemonDiv from './createPokemon.js'
 
 const URL = 'https://pokeapi.co/api/v2/'
 let offset = 0
+const form = document.getElementById('#form')
+const input = document.getElementById('#input')
+const wrapper = document.querySelector('.wrapper')
 
 async function loadPokemons(url, offset) {
   const res = await fetch(url + `pokemon?limit=${60}&offset=${offset}`)
@@ -23,4 +26,10 @@ window.addEventListener('scroll', async e => {
   if (window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight) {
     loadPokemons(URL, (offset += 60))
   }
+})
+
+form.addEventListener('submit', () => {
+  let searchText
+  wrapper.innerHTML = ''
+  loadPokemons(URL + searchText)
 })

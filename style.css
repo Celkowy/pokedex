@@ -92,7 +92,7 @@ img {
 
 .pokemon-flip-box {
   perspective: 1000px;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .pokemon-flip-box.animation {
@@ -171,5 +171,14 @@ span.id {
 @media (max-width: 1024px) {
   .wrapper {
     width: auto;
+  }
+
+  .input {
+    padding: 5px 10px;
+    width: 200px;
+  }
+
+  .submit {
+    padding: 5px 10px;
   }
 }
