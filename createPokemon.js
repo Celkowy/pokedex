@@ -14,8 +14,17 @@ function insertData(data) {
   const pokemonDiv = document.createElement('div')
   pokemonDiv.setAttribute('class', 'pokemon-flip-box')
   const { types } = data
-  pokemonDiv.innerHTML = `
-  <div class="pokemon">
+  pokemonDiv.innerHTML = returnHTML(data, types)
+  wrapper.appendChild(pokemonDiv)
+
+  // setTimeout(() => {
+  //   pokemonDiv.classList.add('animation')
+  // }, data.id * 75)
+}
+
+function returnHTML(data, types) {
+  return `
+<div class="pokemon">
   <div class="flip-box-inner">
     <div class="flip-box-front">
       <div class="img-container"><img src="https://pokeres.bastionbot.org/images/pokemon/${data.id}.png" alt="" /></div>
@@ -54,10 +63,5 @@ function insertData(data) {
     </div>
   </div>
 </div>
-  `
-  wrapper.appendChild(pokemonDiv)
-
-  // setTimeout(() => {
-  //   pokemonDiv.classList.add('animation')
-  // }, data.id * 75)
+`
 }
