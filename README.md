@@ -1,1 +1,2 @@
 # pokedex 
+Collection of pokemons
